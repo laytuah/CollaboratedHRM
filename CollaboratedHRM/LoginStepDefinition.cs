@@ -31,9 +31,9 @@ namespace CollaboratedHRM
         }
 
         [When(@"user inserts ""([^""]*)"" as password")]
-        public void WhenUserInsertsAsPassword(string p0)
+        public void WhenUserInsertsAsPassword(string password)
         {
-            _loginPage.UpdatePassword(p0);
+            _loginPage.UpdatePassword(password);
         }
 
         [When(@"user clicks on Login Button")]
@@ -45,8 +45,12 @@ namespace CollaboratedHRM
         [Then(@"Then user is logged in successfully")]
         public void ThenThenUserIsLoggedInSuccessfully()
         {
-            _homePage.GetUsername();
-            
+            var Getbarchart = _homePage.BarchartDisplay();
+            Assert.IsTrue(Getbarchart);
+            var DisplayBarchart = _homePage.DisplayDashbord();
+            Assert.IsTrue(DisplayBarchart);
+
+
         }
     }
 }

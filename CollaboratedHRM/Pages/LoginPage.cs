@@ -15,22 +15,22 @@ namespace CollaboratedHRM.Pages
         {
             _driver = driver;
         }
-        private IWebElement Username()
+        private IWebElement UsernameTextField()
         {
             return _driver.FindElement(By.Name("username"));
         }
         public void InsertUserName(string username)
-        { 
-            Username().SendKeys(username);
+        {
+            UsernameTextField().SendKeys(username);
         }
-        private IWebElement Password() 
+        private IWebElement PasswordTextField()
         {
             return _driver.FindElement(By.Name("password"));
         }
         public void UpdatePassword(string password) 
         {
-            Password().Clear();
-            Password().SendKeys(password);
+            PasswordTextField().Clear();
+            PasswordTextField().SendKeys(password);
         }
         private IWebElement signIN() 
         {

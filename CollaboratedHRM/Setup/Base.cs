@@ -21,7 +21,6 @@ namespace CollaboratedHRM.Setup
         {
             _objectContainer = objectContainer;
             ChromeOptions options = new ChromeOptions();
-           // options.AddExtension(@"..\..\..\extensions\AdBlock .crx");
             _driver = new ChromeDriver(options);
             _objectContainer.RegisterInstanceAs<IWebDriver>(_driver);
         }
@@ -34,10 +33,10 @@ namespace CollaboratedHRM.Setup
 
         }
 
-        //[AfterScenario]
-        //public void CloseApplicationUnderTest()
-        //{
-        //    _driver?.Quit();
-        //}
+        [AfterScenario]
+        public void CloseApplicationUnderTest()
+        {
+            _driver?.Quit();
+        }
     }
 }
