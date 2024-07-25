@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollaboratedHRM.Pages
 {
@@ -15,31 +10,24 @@ namespace CollaboratedHRM.Pages
         {
             _driver = driver;
         }
-        private IWebElement UsernameTextField()
-        {
-            return _driver.FindElement(By.Name("username"));
-        }
+
+        private IWebElement UsernameTextField => _driver.FindElement(By.Name("username"));
+        private IWebElement PasswordTextField => _driver.FindElement(By.Name("password"));
+        private IWebElement SignIn_button => _driver.FindElement(By.XPath("//button[@type='submit']"));
+
         public void InsertUserName(string username)
         {
-            UsernameTextField().SendKeys(username);
+            UsernameTextField.SendKeys(username);
         }
-        private IWebElement PasswordTextField()
-        {
-            return _driver.FindElement(By.Name("password"));
-        }
+
         public void UpdatePassword(string password) 
         {
-            PasswordTextField().Clear();
-            PasswordTextField().SendKeys(password);
+            PasswordTextField.Clear();
+            PasswordTextField.SendKeys(password);
         }
-        private IWebElement signIN() 
+        public void clickSignIN() 
         {
-            return _driver.FindElement(By.XPath("//button[@type='submit']"));
-        }
-        public HomePage clickSignIN() 
-        {
-            signIN().Click();
-            return new HomePage(_driver);
+            SignIn_button.Click();
         }
     }
 }
