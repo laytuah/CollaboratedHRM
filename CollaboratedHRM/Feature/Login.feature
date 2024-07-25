@@ -1,8 +1,5 @@
-﻿Feature: Feature1
+﻿Feature: Login_UI
 
-A short summary of the feature
-
-@tag1
 Scenario: User can Login
 	Given That OrangeHRM has loaded successfully
 	When user insert "Admin" has username
