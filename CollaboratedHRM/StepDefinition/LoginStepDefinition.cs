@@ -1,9 +1,8 @@
 using CollaboratedHRM.Pages;
 using CollaboratedHRM.Setup;
-using System;
 using TechTalk.SpecFlow;
 
-namespace CollaboratedHRM
+namespace CollaboratedHRM.StepDefinition
 {
     [Binding]
     public class LoginStepDefinition
@@ -11,7 +10,7 @@ namespace CollaboratedHRM
         Base _base;
         LoginPage _loginPage;
         HomePage _homePage;
-        public LoginStepDefinition(Base basee,LoginPage login, HomePage homePage)
+        public LoginStepDefinition(Base basee, LoginPage login, HomePage homePage)
         {
             _base = basee;
             _loginPage = login;
@@ -39,18 +38,14 @@ namespace CollaboratedHRM
         [When(@"user clicks on Login Button")]
         public void WhenUserClicksOnLoginButton()
         {
-           _loginPage.clickSignIN();
+            _loginPage.clickSignIN();
         }
 
         [Then(@"Then user is logged in successfully")]
         public void ThenThenUserIsLoggedInSuccessfully()
         {
-            var Getbarchart = _homePage.BarchartDisplay();
-            Assert.IsTrue(Getbarchart);
-            var DisplayBarchart = _homePage.DisplayDashbord();
-            Assert.IsTrue(DisplayBarchart);
-
-
+            Assert.IsTrue(_homePage.IsBarchartDisplay());
+            Assert.IsTrue(_homePage.IsConfirmationPieChartDisplayed());
         }
     }
 }
