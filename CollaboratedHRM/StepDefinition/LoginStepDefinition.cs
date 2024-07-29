@@ -7,10 +7,10 @@ namespace CollaboratedHRM.StepDefinition
     [Binding]
     public class LoginStepDefinition
     {
-        Base _base;
+        BasePage _base;
         LoginPage _loginPage;
         HomePage _homePage;
-        public LoginStepDefinition(Base basee, LoginPage login, HomePage homePage)
+        public LoginStepDefinition(BasePage basee, LoginPage login, HomePage homePage)
         {
             _base = basee;
             _loginPage = login;
