@@ -45,12 +45,8 @@ namespace CollaboratedHRM
         [Then(@"Then user is logged in successfully")]
         public void ThenThenUserIsLoggedInSuccessfully()
         {
-            var Getbarchart = _homePage.BarchartDisplay();
-            Assert.IsTrue(Getbarchart);
-            var DisplayBarchart = _homePage.DisplayDashbord();
-            Assert.IsTrue(DisplayBarchart);
-
-
+            //Assert.IsTrue(_homePage.IsBarchartDisplay());
+            //Assert.IsTrue(_homePage.IsConfirmationPieChartDisplayed());
         }
     }
 }

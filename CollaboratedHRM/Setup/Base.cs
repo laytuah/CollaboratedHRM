@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 
 namespace CollaboratedHRM.Setup
 {
@@ -17,13 +19,38 @@ namespace CollaboratedHRM.Setup
         public IWebDriver _driver;
         string baseUrl = "https://opensource-demo.orangehrmlive.com/";
 
-        public Base(IObjectContainer objectContainer)
+        public Base(IObjectContainer objectContainer, string browser)
         {
             _objectContainer = objectContainer;
-            ChromeOptions options = new ChromeOptions();
-            _driver = new ChromeDriver(options);
+            _driver = InitializeDriver(browser);
             _objectContainer.RegisterInstanceAs<IWebDriver>(_driver);
         }
+
+        private IWebDriver InitializeDriver(string browser)
+        {
+            IWebDriver driver;
+            switch (browser.ToLower())
+            {
+                case "firefox":
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    driver = new FirefoxDriver(firefoxOptions);
+                    break;
+                case "chrome":
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    driver = new ChromeDriver(chromeOptions);
+                    break;
+                case "edge":
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    driver = new EdgeDriver(edgeOptions);
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported browser: " + browser);
+            }
+
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            return driver;
+        }
+
 
         public void LoadApplicationUnderTest()
         {
