@@ -6,6 +6,7 @@ namespace CollaboratedHRM.Hook
     [Binding]
     internal class Hook
     {
+
         BasePage _basepage;
         public Hook(BasePage basepage)
         {
@@ -14,7 +15,7 @@ namespace CollaboratedHRM.Hook
         [BeforeScenario]
         public void BeforeScenario() 
         { 
-            _basepage.InitializeBrowser("firefox");
+            _basepage.InitializeBrowser(_basepage.GetDataparsar().ExtractData("Browser"));
         }
         [AfterScenario]
         public void AfterScenario() 

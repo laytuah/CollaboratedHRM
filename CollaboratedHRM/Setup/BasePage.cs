@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using CollaboratedHRM.Utilities;
 
 namespace CollaboratedHRM.Setup
 {
@@ -12,7 +13,7 @@ namespace CollaboratedHRM.Setup
     {
         private readonly IObjectContainer _objectContainer;
         public IWebDriver _driver;
-        string baseUrl = "https://opensource-demo.orangehrmlive.com/";
+        
         
         public BasePage(IObjectContainer objectContainer) 
         {
@@ -54,9 +55,13 @@ namespace CollaboratedHRM.Setup
         public void LoadApplicationUnderTest()
         {
        
-            _driver.Navigate().GoToUrl(baseUrl);
+            _driver.Navigate().GoToUrl(GetDataparsar().ExtractData("BaseUrl"));
             _driver.Manage().Window.Maximize();
 
+        }
+        public JsonReader GetDataparsar()
+        {
+            return new JsonReader();
         }
 
         public void CloseApplicationUnderTest()
