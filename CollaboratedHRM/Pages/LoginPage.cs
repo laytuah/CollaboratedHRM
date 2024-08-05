@@ -2,7 +2,7 @@
 
 namespace CollaboratedHRM.Pages
 {
-     public class LoginPage
+    public class LoginPage
     {
         private IWebDriver _driver;
 
@@ -20,12 +20,12 @@ namespace CollaboratedHRM.Pages
             UsernameTextField.SendKeys(username);
         }
 
-        public void UpdatePassword(string password) 
+        public void UpdatePassword(string password)
         {
             PasswordTextField.Clear();
             PasswordTextField.SendKeys(password);
         }
-        public void clickSignIN() 
+        public void clickSignIN()
         {
             SignIn_button.Click();
         }
