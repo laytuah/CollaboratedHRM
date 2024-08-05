@@ -41,10 +41,8 @@ namespace CollaboratedHRM.Utilities
 
         public void LoadApplicationUnderTest()
         {
-
             _driver.Navigate().GoToUrl(GetDataparsar().ExtractData("BaseUrl"));
             _driver.Manage().Window.Maximize();
-
         }
         public JsonReader GetDataparsar()
         {

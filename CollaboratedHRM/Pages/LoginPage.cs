@@ -2,18 +2,13 @@
 
 namespace CollaboratedHRM.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private IWebDriver _driver;
+        public LoginPage(IWebDriver driver) : base(driver) { }
 
-        public LoginPage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
-
-        private IWebElement UsernameTextField => _driver.FindElement(By.Name("username"));
-        private IWebElement PasswordTextField => _driver.FindElement(By.Name("password"));
-        private IWebElement SignIn_button => _driver.FindElement(By.XPath("//button[@type='submit']"));
+        private IWebElement UsernameTextField => Driver.FindElement(By.Name("username"));
+        private IWebElement PasswordTextField => Driver.FindElement(By.Name("password"));
+        private IWebElement SignIn_button => Driver.FindElement(By.XPath("//button[@type='submit']"));
 
         public void InsertUserName(string username)
         {

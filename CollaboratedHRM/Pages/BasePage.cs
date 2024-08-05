@@ -1,8 +1,13 @@
-﻿namespace CollaboratedHRM.Pages
-{
+﻿using OpenQA.Selenium;
 
+namespace CollaboratedHRM.Pages
+{
     public class BasePage
     {
-        
+        public IWebDriver Driver;
+        public BasePage(IWebDriver driver)
+        {
+            Driver = driver;
+        }
     }
 }
