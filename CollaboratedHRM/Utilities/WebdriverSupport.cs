@@ -38,10 +38,6 @@ namespace CollaboratedHRM.Utilities
             _objectContainer.RegisterInstanceAs(_driver);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
-        public JsonReader GetDataparsar()
-        {
-            return new JsonReader();
-        }
 
         public void CloseApplicationUnderTest()
         {

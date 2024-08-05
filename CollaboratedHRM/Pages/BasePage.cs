@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CollaboratedHRM.Configuration;
+using OpenQA.Selenium;
 
 namespace CollaboratedHRM.Pages
 {
@@ -12,7 +13,7 @@ namespace CollaboratedHRM.Pages
 
         public void LoadApplicationUnderTest()
         {
-            Driver.Navigate().GoToUrl(_webGetDataparsar().ExtractData("BaseUrl"));
+            Driver.Navigate().GoToUrl(ConfigurationManager.Url);
             Driver.Manage().Window.Maximize();
         }
     }

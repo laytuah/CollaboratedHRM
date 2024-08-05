@@ -10,17 +10,17 @@ namespace CollaboratedHRM.StepDefinition
     {
         LoginPage _loginPage;
         HomePage _homePage;
-        WebdriverSupport _webdriverSupport;
+        BasePage _basePage;
         public LoginStepDefinition(IObjectContainer objectContainer)
         {
             _loginPage = objectContainer.Resolve<LoginPage>();
             _homePage = objectContainer.Resolve<HomePage>();
-            _webdriverSupport = objectContainer.Resolve<WebdriverSupport>();    
+            _basePage = objectContainer.Resolve<BasePage>();    
         }
         [Given(@"That OrangeHRM has loaded successfully")]
         public void GivenThatOrangeHRMHasLoadedSuccessfully()
         {
-            _webdriverSupport.LoadApplicationUnderTest();
+            _basePage.LoadApplicationUnderTest();
         }
 
         [When(@"user insert ""([^""]*)"" has username")]

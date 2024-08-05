@@ -16,7 +16,7 @@ namespace CollaboratedHRM.Configuration
         }
 
         public static string BrowserName => GetConfigurationValue("Browser");
-        public static string Url => GetConfigurationValue("Site Url");
+        public static string Url => GetConfigurationValue("BaseUrl");
 
         static string GetConfigurationValue(string key)
         {

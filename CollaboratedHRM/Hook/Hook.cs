@@ -1,4 +1,5 @@
-﻿using CollaboratedHRM.Utilities;
+﻿using CollaboratedHRM.Configuration;
+using CollaboratedHRM.Utilities;
 using TechTalk.SpecFlow;
 
 namespace CollaboratedHRM.Hook
@@ -14,7 +15,7 @@ namespace CollaboratedHRM.Hook
         [BeforeScenario]
         public void BeforeScenario()
         {
-            _webdriverSupport.InitializeBrowser(_webdriverSupport.GetDataparsar().ExtractData("Browser"));
+            _webdriverSupport.InitializeBrowser(ConfigurationManager.BrowserName);
         }
         [AfterScenario]
         public void AfterScenario()
