@@ -9,5 +9,11 @@ namespace CollaboratedHRM.Pages
         {
             Driver = driver;
         }
+
+        public void LoadApplicationUnderTest()
+        {
+            Driver.Navigate().GoToUrl(_webGetDataparsar().ExtractData("BaseUrl"));
+            Driver.Manage().Window.Maximize();
+        }
     }
 }

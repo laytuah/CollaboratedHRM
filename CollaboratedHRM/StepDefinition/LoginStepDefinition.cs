@@ -1,3 +1,4 @@
+using BoDi;
 using CollaboratedHRM.Pages;
 using CollaboratedHRM.Utilities;
 using TechTalk.SpecFlow;
@@ -10,12 +11,11 @@ namespace CollaboratedHRM.StepDefinition
         LoginPage _loginPage;
         HomePage _homePage;
         WebdriverSupport _webdriverSupport;
-        public LoginStepDefinition(WebdriverSupport webdriverSupport, LoginPage login, HomePage homePage)
+        public LoginStepDefinition(IObjectContainer objectContainer)
         {
-            _loginPage = login;
-            _homePage = homePage;
-            _webdriverSupport = webdriverSupport;
-
+            _loginPage = objectContainer.Resolve<LoginPage>();
+            _homePage = objectContainer.Resolve<HomePage>();
+            _webdriverSupport = objectContainer.Resolve<WebdriverSupport>();    
         }
         [Given(@"That OrangeHRM has loaded successfully")]
         public void GivenThatOrangeHRMHasLoadedSuccessfully()
