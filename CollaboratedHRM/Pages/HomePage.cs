@@ -18,7 +18,7 @@ namespace CollaboratedHRM.Pages
         {
             return ConfirmationBarChart.Displayed;
         }
-        
+
         public bool IsConfirmationPieChartDisplayed()
         {
             return ConfirmationPieChart.Displayed;
