@@ -1,5 +1,5 @@
 using CollaboratedHRM.Pages;
-using CollaboratedHRM.Setup;
+using CollaboratedHRM.Utilities;
 using TechTalk.SpecFlow;
 
 namespace CollaboratedHRM.StepDefinition
@@ -7,20 +7,20 @@ namespace CollaboratedHRM.StepDefinition
     [Binding]
     public class LoginStepDefinition
     {
-        BasePage _base;
         LoginPage _loginPage;
         HomePage _homePage;
-        public LoginStepDefinition(BasePage basee, LoginPage login, HomePage homePage)
+        WebdriverSupport _webdriverSupport;
+        public LoginStepDefinition(WebdriverSupport webdriverSupport, LoginPage login, HomePage homePage)
         {
-            _base = basee;
             _loginPage = login;
             _homePage = homePage;
+            _webdriverSupport = webdriverSupport;
 
         }
         [Given(@"That OrangeHRM has loaded successfully")]
         public void GivenThatOrangeHRMHasLoadedSuccessfully()
         {
-            _base.LoadApplicationUnderTest();
+            _webdriverSupport.LoadApplicationUnderTest();
         }
 
         [When(@"user insert ""([^""]*)"" has username")]

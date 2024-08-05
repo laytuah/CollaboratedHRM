@@ -2,7 +2,7 @@
 
 namespace CollaboratedHRM.Pages
 {
-    public class HomePage
+    public class HomePage : BasePage
     {
         private IWebDriver _driver;
 
