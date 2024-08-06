@@ -1,4 +1,5 @@
-﻿using CollaboratedHRM.Setup;
+﻿using CollaboratedHRM.Configuration;
+using CollaboratedHRM.Utilities;
 using TechTalk.SpecFlow;
 
 namespace CollaboratedHRM.Hook
@@ -6,21 +7,20 @@ namespace CollaboratedHRM.Hook
     [Binding]
     internal class Hook
     {
-
-        BasePage _basepage;
-        public Hook(BasePage basepage)
+        WebdriverSupport _webdriverSupport;
+        public Hook(WebdriverSupport webdriverSupport)
         {
-            _basepage = basepage;
+            _webdriverSupport = webdriverSupport;
         }
         [BeforeScenario]
         public void BeforeScenario()
         {
-            _basepage.InitializeBrowser(_basepage.GetDataparsar().ExtractData("Browser"));
+            _webdriverSupport.InitializeBrowser(ConfigurationManager.BrowserName);
         }
         [AfterScenario]
         public void AfterScenario()
         {
-            _basepage.CloseApplicationUnderTest();
+            _webdriverSupport.CloseApplicationUnderTest();
         }
     }
 }

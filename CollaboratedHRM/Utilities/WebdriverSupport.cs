@@ -1,23 +1,18 @@
 ﻿using BoDi;
-using CollaboratedHRM.Utilities;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium;
 
-namespace CollaboratedHRM.Setup
+namespace CollaboratedHRM.Utilities
 {
-
-    public class BasePage
+    public class WebdriverSupport
     {
         private readonly IObjectContainer _objectContainer;
         public IWebDriver _driver;
-
-
-        public BasePage(IObjectContainer objectContainer)
+        public WebdriverSupport(IObjectContainer objectContainer)
         {
             _objectContainer = objectContainer;
-
         }
 
 
@@ -42,20 +37,6 @@ namespace CollaboratedHRM.Setup
             }
             _objectContainer.RegisterInstanceAs(_driver);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-        }
-
-        public void LoadApplicationUnderTest()
-        {
-
-            _driver.Navigate().GoToUrl(GetDataparsar().ExtractData("BaseUrl"));
-            _driver.Manage().Window.Maximize();
-
-        }
-        public JsonReader GetDataparsar()
-        {
-
-            return new JsonReader();
         }
 
         public void CloseApplicationUnderTest()

@@ -1,5 +1,6 @@
+using BoDi;
 using CollaboratedHRM.Pages;
-using CollaboratedHRM.Setup;
+using CollaboratedHRM.Utilities;
 using TechTalk.SpecFlow;
 
 namespace CollaboratedHRM.StepDefinition
@@ -7,20 +8,19 @@ namespace CollaboratedHRM.StepDefinition
     [Binding]
     public class LoginStepDefinition
     {
-        BasePage _base;
         LoginPage _loginPage;
         HomePage _homePage;
-        public LoginStepDefinition(BasePage basee, LoginPage login, HomePage homePage)
+        BasePage _basePage;
+        public LoginStepDefinition(IObjectContainer objectContainer)
         {
-            _base = basee;
-            _loginPage = login;
-            _homePage = homePage;
-
+            _loginPage = objectContainer.Resolve<LoginPage>();
+            _homePage = objectContainer.Resolve<HomePage>();
+            _basePage = objectContainer.Resolve<BasePage>();    
         }
         [Given(@"That OrangeHRM has loaded successfully")]
         public void GivenThatOrangeHRMHasLoadedSuccessfully()
         {
-            _base.LoadApplicationUnderTest();
+            _basePage.LoadApplicationUnderTest();
         }
 
         [When(@"user insert ""([^""]*)"" has username")]

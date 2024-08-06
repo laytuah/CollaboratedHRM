@@ -2,17 +2,13 @@
 
 namespace CollaboratedHRM.Pages
 {
-    public class HomePage
+    public class HomePage : BasePage
     {
-        private IWebDriver _driver;
+        public HomePage(IWebDriver driver) : base(driver) { }
 
-        public HomePage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
 
-        private IWebElement ConfirmationBarChart => _driver.FindElement(By.XPath("(//canvas)[1]"));
-        private IWebElement ConfirmationPieChart => _driver.FindElement(By.XPath("(//div[@class='oxd-pie-chart']//canvas)[1]"));
+        protected IWebElement ConfirmationBarChart => Driver.FindElement(By.XPath("(//canvas)[1]"));
+        protected IWebElement ConfirmationPieChart => Driver.FindElement(By.XPath("(//div[@class='oxd-pie-chart']//canvas)[1]"));
 
         public bool IsBarchartDisplay()
         {
