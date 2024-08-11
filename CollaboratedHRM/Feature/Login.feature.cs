@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 20
  await testRunner.AndAsync("user also fill Nationality, Marital Status, Date of Birth and Gender as \'Nigerian" +
-                        "\', \'single\', \'1996-02-05\' and Male respectively", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "\', \'Single\', \'1996-02-05\' and Male respectively", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
  await testRunner.AndAsync("user click save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

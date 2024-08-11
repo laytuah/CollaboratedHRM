@@ -108,7 +108,7 @@ namespace CollaboratedHRM.StepDefinition
         [Then(@"user verify that new employee is successfully added")]
         public void ThenUserVerifyThatNewEmployeeIsSuccessfullyAdded()
         {
-            
+            _pimPage.byVerifyEmployeeDisplayed();
         }
 
 

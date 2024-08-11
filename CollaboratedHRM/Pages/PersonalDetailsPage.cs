@@ -42,16 +42,14 @@ namespace CollaboratedHRM.Pages
 
         public void selectNationality(string nationality)
         {
-            var select = Driver.FindElement(Nationality);
-            select.Click();
-            Driver.FindElement(By.XPath($"(//div[@class='oxd-select-text-input'])[1]//*[text()='{nationality}']")).Click();
-            Thread.Sleep(5000);
+            Driver.FindElement(Nationality).Click();            
+            Driver.FindElement(By.XPath($"//div[@class='oxd-select-dropdown --positon-bottom']//span[contains(.,'{nationality}')]")).Click();
         }
 
         public void selectMaritalStatus(string status)
         {
-            SelectElement dropDown = new SelectElement(Driver.FindElement(MaritalStatus));
-            dropDown.SelectByIndex(1);
+            Driver.FindElement(MaritalStatus).Click();
+            Driver.FindElement(By.XPath($"//div[@class='oxd-select-dropdown --positon-bottom']//span[contains(.,'{status}')]")).Click();
         }
 
         public void fillDateOfBirth(string date)

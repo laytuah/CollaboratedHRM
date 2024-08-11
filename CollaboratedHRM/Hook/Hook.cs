@@ -20,7 +20,7 @@ namespace CollaboratedHRM.Hook
         [AfterScenario]
         public void AfterScenario()
         {
-            _webdriverSupport.CloseApplicationUnderTest();
+            //_webdriverSupport.CloseApplicationUnderTest();
         }
     }
 }
