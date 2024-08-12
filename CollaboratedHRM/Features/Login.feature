@@ -5,4 +5,4 @@ Scenario: User can Login
 	When user insert "Admin" has username
 	And user inserts "admin123" as password
 	And user clicks on Login Button
-	Then Then user is logged in successfully
+	Then The user is logged in successfully

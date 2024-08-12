@@ -58,7 +58,7 @@ namespace CollaboratedHRM.Hook
             _webdriverSupport.CloseApplicationUnderTest();
         }
         [AfterStep]
-        public void AfterStep(ScenarioContext scenarioContext)
+        public void AfterStep(IWebDriver driver,ScenarioContext scenarioContext)
         {
             Console.WriteLine("Running after step....");
             string stepType = scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
@@ -87,29 +87,29 @@ namespace CollaboratedHRM.Hook
                 }
             }
 
-            //When scenario fails
+          
             if (scenarioContext.TestError != null)
             {
-
+               
                 if (stepType == "Given")
                 {
-                    _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message);
-                       // MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(_driver, scenarioContext)).Build());
+                    _scenario.CreateNode<Given>(stepName).Fail( scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(AddScreenshot(driver,scenarioContext)).Build());
                 }
                 else if (stepType == "When")
                 {
-                    _scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message);
-                       // MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(_driver, scenarioContext)).Build());
+                    _scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(AddScreenshot(driver,scenarioContext)).Build());
                 }
                 else if (stepType == "Then")
                 {
-                    _scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message);
-                       // MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(_driver, scenarioContext)).Build());
+                    _scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message,
+                       MediaEntityBuilder.CreateScreenCaptureFromPath(AddScreenshot(driver, scenarioContext)).Build());
                 }
                 else if (stepType == "And")
                 {
-                    _scenario.CreateNode<And>(stepName).Fail(scenarioContext.TestError.Message);
-                       // MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(_driver, scenarioContext)).Build());
+                    _scenario.CreateNode<And>(stepName).Fail(scenarioContext.TestError.Message,
+                    MediaEntityBuilder.CreateScreenCaptureFromPath(AddScreenshot(driver, scenarioContext)).Build());
                 }
             }
         }
