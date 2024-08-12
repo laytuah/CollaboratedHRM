@@ -41,7 +41,7 @@ namespace CollaboratedHRM.StepDefinition
             _loginPage.clickSignIN();
         }
 
-        [Then(@"Then user is logged in successfully")]
+        [Then(@"The user is logged in successfully")]
         public void ThenThenUserIsLoggedInSuccessfully()
         {
             Assert.IsTrue(_homePage.IsBarchartDisplay());

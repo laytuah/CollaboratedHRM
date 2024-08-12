@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CollaboratedHRM.Feature
+namespace CollaboratedHRM.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -35,7 +35,7 @@ namespace CollaboratedHRM.Feature
         public virtual async System.Threading.Tasks.Task FeatureSetupAsync()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunnerForAssembly(null, NUnit.Framework.TestContext.CurrentContext.WorkerId);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "Login_UI", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Login_UI", null, ProgrammingLanguage.CSharp, featureTags);
             await testRunner.OnFeatureStartAsync(featureInfo);
         }
         
@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.GivenAsync("That OrangeHRM has loaded successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
- await testRunner.WhenAsync("user insert \"Admin\" has username", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ await testRunner.WhenAsync("user insert \"Admiiiin\" has username", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
  await testRunner.AndAsync("user inserts \"admin123\" as password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -103,7 +103,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.AndAsync("user clicks on Login Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
- await testRunner.ThenAsync("Then user is logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ await testRunner.ThenAsync("The user is logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
